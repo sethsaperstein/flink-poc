@@ -1,0 +1,24 @@
+apiVersion: flink.apache.org/v1beta1
+kind: FlinkDeployment
+metadata:
+  name: flink-poc
+spec:
+  image: flink_poc:latest
+  imagePullPolicy: Never
+  flinkVersion: v1_15
+  mode: standalone
+  flinkConfiguration:
+    taskmanager.numberOfTaskSlots: "2"
+  serviceAccount: flink
+  jobManager:
+    resource:
+      memory: "2048m"
+      cpu: 1
+  taskManager:
+    resource:
+      memory: "2048m"
+      cpu: 1
+  job:
+    jarURI: local:///opt/flink/app/flink-poc-0.1.jar
+    parallelism: 2
+    upgradeMode: stateless
