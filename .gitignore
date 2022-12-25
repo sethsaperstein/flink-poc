@@ -12,6 +12,8 @@
 .idea/**/dictionaries
 .idea/**/shelf
 ops/terraform/.terraform/
+scripts/credentials
+scripts/config
 
 # AWS User-specific
 .idea/**/aws.xml

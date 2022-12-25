@@ -9,6 +9,7 @@ spec:
   mode: standalone
   flinkConfiguration:
     taskmanager.numberOfTaskSlots: "2"
+    kubernetes.entry.path: "/bin/flink-poc.sh"
   serviceAccount: flink
   jobManager:
     resource:
@@ -19,6 +20,6 @@ spec:
       memory: "2048m"
       cpu: 1
   job:
-    jarURI: local:///opt/flink/app/flink-poc-0.1.jar
+    jarURI: local:///opt/flink/app/flink-app.jar
     parallelism: 2
     upgradeMode: stateless
